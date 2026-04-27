@@ -5,3 +5,5 @@
 /IBD_temporal_analysis/saved_models/
 /IBD_temporal_analysis/plots/
 /.venv/
+.DS_Store
+.idea
