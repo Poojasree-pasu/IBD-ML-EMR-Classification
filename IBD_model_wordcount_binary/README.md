@@ -39,6 +39,9 @@ IBD_model_development/
 The dataset is located in `data/`:
 - 'IBD_1200patients_wordcounttobinary.csv' - Synthetic de-identified sample
 
+The same SQL data extraction criteria, data cleaning procedures, cohort definitions, and feature engineering workflow used in the primary analysis were applied in this version. 
+The only change was that clinical word count features were converted from continuous counts to binary indicators, while all other features remained unchanged.
+
 **Note:** Model training and evaluation results in the manuscript were obtained using the original EMR dataset, not the synthetic data included here.
 
 ### Target Classes

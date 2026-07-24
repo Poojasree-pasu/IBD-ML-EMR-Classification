@@ -40,6 +40,10 @@ The dataset is located in `data/`:
 - `IBDregistry_traindata_pre2022.csv` - Training data (pre-2022) - Synthetic de-identified sample 
 - `IBDregistry_testdata_post2022.csv` - Test data (2022 onward) - Synthetic de-identified sample
 
+The same institutional SQL extraction criteria, post extraction data cleaning procedures, cohort definitions, and feature engineering rules were applied consistently to both cohorts.
+
+The pre 2022 cohort included patients assigned through December 31, 2021, whereas the post 2022 cohort included patients assigned from January 1, 2022, onward.
+
 **Note:** Model training and evaluation results in the manuscript were obtained using the original EMR dataset, not the synthetic data included here.
 
 ### Target Classes

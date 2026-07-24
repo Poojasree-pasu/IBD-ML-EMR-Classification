@@ -1,6 +1,6 @@
 # IBD Model Development
 
-This repository contains code and notebooks for the development, training, and evaluation of multi-class machine learning models to classify Inflammatory Bowel Disease (IBD) using structured clinical data.
+This repository contains code and notebooks for the development, training, and evaluation of multi-class machine learning models to classify Inflammatory Bowel Disease (IBD) using structured and unstructured EMR data.
 
 ## Overview
 
@@ -11,8 +11,18 @@ The objective of this project is to classify patients into:
 
 Models are trained using a standard train–test split and evaluated using repeated stratified cross-validation to ensure robustness and reproducibility.
 
+## Data Preparation Workflow
+
+This module uses the final patient level analytic dataset produced through the data-cleaning, cohort-construction, and feature-engineering workflow.
+
+The workflow is documented in:
+
+```text
+src/notebooks/IBD_post_extraction_cleaning_cohort_feature_engineering.ipynb
+```
+
 ## Installation
-pip install -r requirements.txt
+pip install -r ../requirements.txt
 
 ## Project Structure
 ```
@@ -20,6 +30,7 @@ IBD_model_development/
 ├── data/                     # IBD registry data
 └── src/
     ├── notebooks/            # Jupyter notebooks for model development and evaluation
+    │   ├── IBD_post_extraction_cleaning_cohort_feature_engineering.ipynb
     │   ├── IBD_logistic_regression.ipynb
     │   ├── IBD_random_forest.ipynb
     │   ├── IBD_xgboost.ipynb
@@ -27,6 +38,8 @@ IBD_model_development/
     │   ├── IBD_logistic_regression_rfecv.ipynb
     │   ├── IBD_random_forest_rfecv.ipynb
     │   ├── IBD_xgboost_rfecv.ipynb
+    │   ├── 3codes&IBDmed.ipynb
+    │   ├── 5codes.ipynb
     │   └── IBD_model_comparison.ipynb
     ├── preprocessing.py      # Feature preprocessing pipelines
     ├── utils.py              # Configuration and hyperparameter grids
