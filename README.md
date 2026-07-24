@@ -1,6 +1,7 @@
 # Beyond ICD-10 Codes: A Multi-Class Machine Learning Approach to Identify True IBD Cases in Electronic Medical Records
 
-This repository contains code and analyses for the development, training, and evaluation of multi-class machine learning models to classify Inflammatory Bowel Disease (IBD) using structured and unstructured electronic medical record (EMR) data.
+This repository contains code and documentation for electronic medical record data extraction criteria, post extraction data cleaning, cohort construction, feature engineering, and the development and evaluation of multi class machine learning models to classify Inflammatory Bowel Disease (IBD) using structured and unstructured electronic medical record (EMR) data.
+
 
 The study aims to improve identification of true IBD cases (Crohn’s Disease [CD], Ulcerative Colitis [UC], and No IBD) using machine learning models applied to EMR data.
 
@@ -11,7 +12,28 @@ The study aims to improve identification of true IBD cases (Crohn’s Disease [C
 IBD-ML-EMR-Classification/
 │
 ├── IBD_model_development/
-│ Core machine learning model development using full feature set
+│   ├── data/                         # Synthetic sample dataset
+│   │
+│   ├── src/
+│   │   ├── notebooks/
+│   │   │   ├── IBD_post_extraction_cleaning_cohort_feature_engineering.ipynb        #Post-extraction cleaning, cohort construction and feature engineering
+│   │   │   ├── IBD_logistic_regression.ipynb
+│   │   │   ├── IBD_random_forest.ipynb
+│   │   │   ├── IBD_xgboost.ipynb
+│   │   │   ├── IBD_lasso_logistic_regression.ipynb
+│   │   │   ├── IBD_logistic_regression_rfecv.ipynb
+│   │   │   ├── IBD_random_forest_rfecv.ipynb
+│   │   │   ├── IBD_xgboost_rfecv.ipynb
+│   │   │   ├── IBD_model_comparison.ipynb
+│   │   │   ├── 3codes&IBDmed.ipynb
+│   │   │   └── 5codes.ipynb
+│   │   │
+│   │   ├── preprocessing.py
+│   │   ├── evaluation_plots.py
+│   │   ├── repeated_stratified_kfold.py
+│   │   └── utils.py
+│   │
+│   └── README.md
 │
 ├── IBD_model_wordcount_binary/
 │ Models using binary representation of clinical word count features, while all other features remain unchanged.
@@ -28,6 +50,15 @@ IBD-ML-EMR-Classification/
 Each subdirectory contains its own README with detailed instructions and descriptions.
 
 ---
+## Data Preparation and Feature Engineering
+
+The notebook 
+`IBD_model_development/src/notebooks/IBD_post_extraction_cleaning_cohort_feature_engineering.ipynb`
+documents the institutional data extraction criteria and the Python workflow used for post extraction data cleaning, cohort construction, and feature engineering.
+
+The notebook covers diagnosis definitions, medication variables, labs and BMI preprocessing, demographic variables, encounter variables, clinical text features and construction of the final patient level analytic dataset.
+
+The original institutional SQL queries are not included because they depend on the local Epic Caboodle and OnBase database structures and operate on protected patient level data.
 
 ## Methods Overview
 
@@ -110,6 +141,10 @@ For both approaches:
 pip install -r requirements.txt
 
 ### Run notebooks
+jupyter notebook IBD_model_development/src/notebooks/IBD_post_extraction_cleaning_cohort_feature_engineering.ipynb
+
+This notebook expects dataframes generated from the institutional extraction steps. Patient level source data are not included in the public repository.
+
 Navigate to desired module:
 - IBD_model_development
 - Launch: jupyter notebook
@@ -144,7 +179,11 @@ Navigate to desired module:
 Due to patient privacy and institutional restrictions, raw EMR data cannot be shared.
 
 This repository includes:
-- A synthetic sample dataset for demonstration purposes  
-- Full model development and evaluation pipelines  
+
+- Documentation of institutional data extraction criteria
+- Post-extraction data-cleaning and feature-engineering code
+- Cohort and variable definitions
+- A synthetic sample dataset for demonstration purposes
+- Model-development and evaluation pipelines
 
 **Note:** Model training and evaluation results reported in the manuscript were obtained using the original EMR dataset and not the synthetic data included in this repository.
